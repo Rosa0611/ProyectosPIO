@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(101, 179, 182);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: blueviolet;
+    text-align: center;
+}
+
+p {
+    color: rgb(7, 7, 7);
+    font-size: 20px;
+    font-family: Courier;
+    text-align: justify;
+
+}
