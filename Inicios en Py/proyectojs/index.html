@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="logo de pio">
+        <h1>Peliculas</h1>
+    </header>
+<!--Formulario que agrega pelicula --> 
+    <form id="addMovieForm">
+        <label for="movieTitle">Titulo:</label>
+        <input type="text" id="movieTitle" placeholder="Titulo de la pelicula" required>
+
+        <label for="movieYear">Año:</label>
+        <input type="number" id="movieYear" placeholder="Año de estreno" required>
+
+        <label for="moviePoster">Poster(URL):</label>
+        <input type="url" id="moviePoster" placeholder="url del poster" required>
+
+        <button type="submit">Agregar Pelicula</button>
+        
+    </form>
+<!--Filtros y opciones para ordenar --> 
+
+    <div id="filters">
+        <label for="yearFilter"> Filtrar por año</label>
+        <input type="number" id="yearFilter" placeholder="año">
+
+        <label for="sortMovies">Ordenar por:</label>
+        <select id="sortMovies">
+            <option value="title">Titulo</option>
+            <option value="year">Año</option>
+        </select>
+
+        <button id="ThemeToggle">Cambiar a modo oscuro</button>
+        
+    </div>
+    
+<!--targetas de peliculas --> 
+
+    <div id="moviesList"></div>
+    <div></div>
+</body>
+</html>
