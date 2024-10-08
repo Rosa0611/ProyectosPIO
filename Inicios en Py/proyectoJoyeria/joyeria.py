@@ -13,6 +13,8 @@ carrito = []
 def limpiaPantalla ():
     if os.name == 'nt':
         os.system('cls') #Limpiar terminal en windows
+    else:
+        os.system('clear')  # Limpiar terminal en Linux/macOS
 
 def mostrarProductos ():
     limpiaPantalla()
@@ -32,11 +34,8 @@ def agregaralCarrito ():
                 print ("no hay suficientes productos")
             else:
                 productos[opcion-1]['cantidad']-= cantidad
-                carrito.append ({"nombre":producto ['nombre'], "precio": producto['precio'], "cantidad": cantidad})
-                print(f"Felicidades!! Añadiste {cantidad['cantidad']},{producto['nombre']} de manera exitosa")
-
-        else:
-            print("Opcion invalidad")
+                carrito.append ({"nombre":producto ["nombre"], "precio": producto['precio'], "cantidad": cantidad})
+                print(f"Felicidades!! Añadiste {cantidad} {producto['nombre']} de manera exitosa")
 
     except Exception as e:
         print ("Se ha producido un error", e)
@@ -47,8 +46,8 @@ def mostrarCarrito ():
         print ("Carrito de compras")
         for i, item in enumerate  (carrito, 1):
             print(f"{i}.producto:{item['nombre']}- ${item['precio']} - cantidad: {item['cantidad']}")
-        else:
-            print("El carrito está vacio")
+    else:
+        print("El carrito está vacio")
 
 
 def calcularTotal ():
@@ -62,9 +61,9 @@ def finalizarCompra ():
 
     if carrito:
         calcularTotal()
-        confirmar = input("Desea finalizar su compra (Si/No): ")
+        confirmar = input("Desea finalizar su compra (s/n): ")
 
-        if confirmar.lower() == "si":
+        if confirmar.lower() == "s":
             carrito.clear()
             print ("La compra fue realizada exitosamente")
         else:
