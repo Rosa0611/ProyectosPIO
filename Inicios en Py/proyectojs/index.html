@@ -12,6 +12,8 @@
         <h1>Peliculas</h1>
     </header>
 <!--Formulario que agrega pelicula --> 
+
+    <img src="poster1.jpg" class="pelicula1">
     <form id="addMovieForm">
         <label for="movieTitle">Titulo:</label>
         <input type="text" id="movieTitle" placeholder="Titulo de la pelicula" required>
@@ -49,11 +51,12 @@
 
     <div id="modal" class="modal oculto">
         <div class="modal-content">
-            <span id="closeModal" class="cerrar" >&times;</span>
+            <span id="closeModal" class="close" >&times;</span>
             <h3 id="modalTitle"></h3>
             <p id="modalYear"></p>
             <img id="modalPoster" src="" alt="Póster de la película">
         </div>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>

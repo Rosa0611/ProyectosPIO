@@ -52,9 +52,17 @@ function showModal(movie) {
     modal.classList.remove('hidden'); // Mostrar el modal
 }
 
-// Ocultar el modal
+// Ocultar el modal haciendo clic en la x
 closeModal.addEventListener('click', () => {
-    modal.classList.add('hidden');
+    modal.style.display = "none";
+});
+
+// Ocultar el modal haciendo clic fuera del contenido del modal
+
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 });
 
 // Agregar una nueva película

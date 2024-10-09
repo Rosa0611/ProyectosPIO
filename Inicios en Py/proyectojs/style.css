@@ -21,6 +21,11 @@ header img {
 }
 
 /* Formulario de agregar película */
+.poster1 {
+    max-width: 50%;
+    height: 50%;
+}
+
 form {
     margin-bottom: 20px;
 }
@@ -77,8 +82,10 @@ button {
 
 .modal-content {
     background-color: rgb(68, 0, 255);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
+    width: 40%;
+    height: 80%;
     text-align: center;
     position: relative;
     color: #f0f0f0;
