@@ -10,6 +10,16 @@ body { /* Estilo de la página */
     background-color:rgba(127, 255, 212, 0.361);
 }
 
+.btn-outline-success { /* Estilo del boton de buscar */
+    color: white; /* Color aguamarina */
+    background-color: #5df0bf;
+    border-color: #24bbbb; /* Coincide con el color del navbar */
+}
+
+.btn-outline-success:hover { /* Estilo del hover del boton de buscar */
+    background-color: #24bbbb; /* Color azul */
+    border-color: #24bbbb; /* Coincide con el color del navbar */
+}
 .btn-custom { /* Estilo de los botones */
     background-color: #5df0bf; /* Color aguamarina */
     border-color: #5df0bf; /* Coincide con el color del navbar */
@@ -33,7 +43,14 @@ body { /* Estilo de la página */
     border-color: #555;
 }
 
-.dark-mode .btn-custom:hover {
+.dark-mode .btn-outline-success {
+    color: white;
+    background-color: #555;
+    border-color: #333;
+}
+
+.dark-mode .btn-custom:hover,
+.dark-mode .btn-outline-success:hover {
     background-color: #00ffff;
 }
 /* Formulario de agregar película */
