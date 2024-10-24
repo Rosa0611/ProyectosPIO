@@ -10,6 +10,32 @@ body { /* Estilo de la página */
     background-color:rgba(127, 255, 212, 0.361);
 }
 
+.btn-custom { /* Estilo de los botones */
+    background-color: #5df0bf; /* Color aguamarina */
+    border-color: #5df0bf; /* Coincide con el color del navbar */
+    color: white;
+}
+
+.btn-custom:hover { /* Estilo del hover de los botones */
+    background-color: #24bbbb; /* Color azul */
+    border-color: #24bbbb; /* Coincide con el color del navbar */
+}
+
+/* estilo modo oscuro */
+.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .navbar-custom,
+.dark-mode .btn-custom {
+    background-color: #555;
+    border-color: #555;
+}
+
+.dark-mode .btn-custom:hover {
+    background-color: #00ffff;
+}
 /* Formulario de agregar película */
 
 form {

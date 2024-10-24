@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="light-mode">
 <!--Nabvar de la pagina --> 
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid d-flex justify-content-between">
@@ -46,18 +46,27 @@
 
 <!--Filtros y opciones para ordenar --> 
 
-<div id="filters">
-    <label for="yearFilter"> Filtrar por año</label>
-    <input type="number" id="yearFilter" placeholder="año">
+    <div class="container mt-4">
+        <form id="filterForm" class="row g-3">
+            <div class="col-md-4">
+                <label for="filterYear" class="form-label">Filtrar por año</label>
+                <input type="number" class="form-control" id="filterYear" placeholder="Ej: 2022">
+            </div>
+            <div class="col-md-4">
+                <label for="sortBy" class="form-label">Ordenar por</label>
+                <select class="form-select" id="sortBy">
+                    <option value="title">Título</option>
+                    <option value="year">Año</option>
+                </select>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="button" class="btn btn-custom" id="applyFilter">Aplicar filtro</button>
+                <!-- Botón de Modo Oscuro fuera del Navbar -->
+                <button id="darkModeToggle" class="btn btn-custom">Modo Oscuro</button>
 
-    <label for="sortMovies">Ordenar por:</label>
-    <select id="sortMovies">
-        <option value="title">Titulo</option>
-        <option value="year">Año</option>
-    </select>
-
-    <button id="ThemeToggle">Cambiar a modo oscuro</button>
-    
+            </div>
+        </form>
+    </div>   
 </div>
 
 <!--Modal del formulario que agrega pelicula -->
@@ -90,7 +99,7 @@
                             <label for="movieActors" class="form-label">Actores Principales</label>
                             <input type="text" class="form-control" id="movieActors" placeholder="Actores principales (separados por comas)">
                         </div>
-                        <button type="submit" class="btn btn-primary">Añadir Película</button>
+                        <button type="submit" class="btn btn-custom">Añadir Película</button>
                     </form>
                 </div>
             </div>
@@ -100,39 +109,62 @@
 <!--Targetas de peliculas -->
 
     <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
 <!--Targetas de peliculas -->
             <div class="col">
                 <div class="card h-100">
-                    <img src="poster1.jpg" width="1%" height="20%" class="card-img-top" alt="Póster de la película">
+                    <img src="poster1.jpg" height="53%" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
-                        <h5 class="card-title">Deadpol vs Wolverine</h5>
+                        <h5 class="card-title">Deadpol VS Wolverine</h5>
                         <p class="card-text">Año: 2024</p>
                 
                     </div>
+                </div>
             </div>
-            <div class="card h-100">
-                <img src="poster1.jpg" width="1%" height="20%" class="card-img-top" alt="Póster de la película">
-                <div class="card-body">
-                    <h5 class="card-title">Deadpol vs Wolverine</h5>
-                    <p class="card-text">Año: 2024</p>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="poster2.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Joker 2</h5>
+                        <p class="card-text">Año: 2024</p>
             
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="poster3.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Alien VS Depredador 2</h5>
+                        <p class="card-text">Año: 2007</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="poster4.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Amityville Turkey Day</h5>
+                        <p class="card-text">Año: 2024</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="poster5.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">No Respires 1</h5>
+                        <p class="card-text">Año: 2016</p>
+            
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-<!--Mostrar detalles --> 
-
-    <div id="modal" class="modal oculto">
-        <div class="modal-content">
-            <span id="closeModal" class="close" >&times;</span>
-            <h3 id="modalTitle"></h3>
-            <p id="modalYear"></p>
-            <img id="modalPoster" src="" alt="Póster de la película">
-        </div>
-    </div>
     <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
