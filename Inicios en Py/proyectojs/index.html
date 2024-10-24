@@ -1,76 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peliculas</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 <!--Nabvar de la pagina --> 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid"> 
-            <a class="navbar-brand" href="#">Peliculas</a>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid d-flex justify-content-between">
+            <div class="mx-auto"> 
+            <a class="navbar-brand text-center" href="#">Peliculas PIO</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="d-flex ms-auto">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="#">Novedades</a> 
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Novedades</a></li>
+                            <li><a class="dropdown-item" href="#">Categorías</a></li>
+                            <li><a class="dropdown-item" href="#">Favoritos</a></li>
+                            <li><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#addMovieModal"> Añadir</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
-                    </li>
-                </ul> 
+                </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar películas..." aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar película..." aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
     </nav>
-                    
-   
-<!--Formulario que agrega pelicula --> 
 
-    <img src="poster1.jpg" width="10%" height="10%" id="pelicula1">
-    <form id="addMovieForm">
-        <label for="movieTitle">Titulo:</label>
-        <input type="text" id="movieTitle" placeholder="Titulo de la pelicula" required>
-
-        <label for="movieYear">Año:</label>
-        <input type="number" id="movieYear" placeholder="Año de estreno" required>
-
-        <label for="moviePoster">Poster(URL):</label>
-        <input type="url" id="moviePoster" placeholder="url del poster" required>
-
-        <button type="submit">Agregar Pelicula</button>
-        
-    </form>
 <!--Filtros y opciones para ordenar --> 
 
-    <div id="filters">
-        <label for="yearFilter"> Filtrar por año</label>
-        <input type="number" id="yearFilter" placeholder="año">
+<div id="filters">
+    <label for="yearFilter"> Filtrar por año</label>
+    <input type="number" id="yearFilter" placeholder="año">
 
-        <label for="sortMovies">Ordenar por:</label>
-        <select id="sortMovies">
-            <option value="title">Titulo</option>
-            <option value="year">Año</option>
-        </select>
+    <label for="sortMovies">Ordenar por:</label>
+    <select id="sortMovies">
+        <option value="title">Titulo</option>
+        <option value="year">Año</option>
+    </select>
 
-        <button id="ThemeToggle">Cambiar a modo oscuro</button>
-        
+    <button id="ThemeToggle">Cambiar a modo oscuro</button>
+    
+</div>
+
+<!--Modal del formulario que agrega pelicula -->
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMovieModalLabel">Añadir Nueva Película</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="movieTitle" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="movieTitle" placeholder="Título de la película">
+                        </div>
+                        <div class="mb-3">
+                            <label for="movieYear" class="form-label">Año</label>
+                            <input type="number" class="form-control" id="movieYear" placeholder="Año de estreno">
+                        </div>
+                        <div class="mb-3">
+                            <label for="moviePoster" class="form-label">Póster (URL)</label>
+                            <input type="url" class="form-control" id="moviePoster" placeholder="URL del póster de la película">
+                        </div>
+                        <div class="mb-3">
+                            <label for="movieGenre" class="form-label">Género</label>
+                            <input type="text" class="form-control" id="movieGenre" placeholder="Género de la película">
+                        </div>
+                        <div class="mb-3">
+                            <label for="movieActors" class="form-label">Actores Principales</label>
+                            <input type="text" class="form-control" id="movieActors" placeholder="Actores principales (separados por comas)">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Añadir Película</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     
-<!--Targetas de peliculas --> 
+<!--Targetas de peliculas -->
 
-    <div id="movieList"></div>
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+<!--Targetas de peliculas -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="poster1.jpg" width="1%" height="20%" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Deadpol vs Wolverine</h5>
+                        <p class="card-text">Año: 2024</p>
+                
+                    </div>
+            </div>
+            <div class="card h-100">
+                <img src="poster1.jpg" width="1%" height="20%" class="card-img-top" alt="Póster de la película">
+                <div class="card-body">
+                    <h5 class="card-title">Deadpol vs Wolverine</h5>
+                    <p class="card-text">Año: 2024</p>
+            
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 <!--Mostrar detalles --> 
 
