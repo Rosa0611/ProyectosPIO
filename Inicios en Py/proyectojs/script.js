@@ -12,7 +12,7 @@ toggleButton.addEventListener('click', () => {
         }
 });
 
-// Funcionalidad de filtrado y 
+// Funcionalidad de filtrado y ordenamiento
 const filterButton = document.getElementById('applyFilter');
 const moviesGrid = document.getElementById('moviesGrid');
 const originalMovies = Array.from(moviesGrid.children);
@@ -114,4 +114,34 @@ moviesGrid.addEventListener('click', (event) => {
     // Incrementa el contador de clics para esta película
     movieClickCounts[movieTitle] = (movieClickCounts[movieTitle] || 0) + 1;
   }
+});
+
+// Función para filtrar películas por género
+function filterByGenre(genre) {
+  console.log(`Filtrando por género: ${genre}`);
+
+  const movies = Array.from(moviesGrid.getElementsByClassName('movie-item'));
+
+  // Filtrar películas que coincidan con el género seleccionado
+  const genreMovies = movies.filter(movie => {
+    const movieGenre = movie.dataset.genre.toLowerCase();
+    const selectedGenre = genre.toLowerCase();
+    console.log(`Película: ${movie.dataset.title}, género: ${movieGenre}, género seleccionado: ${selectedGenre}`);
+    return movieGenre === selectedGenre;
+  });
+
+  // Mostrar solo las películas que coinciden con el género
+  moviesGrid.innerHTML = '';
+  genreMovies.forEach(movie => moviesGrid.appendChild(movie));
+  console.log(`Películas filtradas: ${genreMovies.length}`);
+}
+
+
+// Agregar eventos de clic para cada opción de categoría
+document.querySelectorAll('.category-link').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const genre = link.getAttribute('data-genre');
+    filterByGenre(genre);
+  });
 });
