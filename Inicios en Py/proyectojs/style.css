@@ -72,6 +72,16 @@ button {
     margin-right: 10px;
 }
 
+/* Estilo para mostrar el submenú cuando se hace hover sobre el elemento padre */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+}
 
 /* Estilos para las tarjetas de películas */
 .movie-item .card {

@@ -57,3 +57,61 @@ inicioButton.addEventListener('click', (event) => {
     document.getElementById('filterYear').value = '';
     document.getElementById('sortBy').value = 'title';
   });
+
+// Activar submenús en hover
+document.querySelectorAll('.dropdown-submenu').forEach(function (element) {
+  element.addEventListener('mouseenter', function () {
+    let submenu = element.querySelector('.dropdown-menu');
+    submenu.classList.add('show');
+  });
+  element.addEventListener('mouseleave', function () {
+    let submenu = element.querySelector('.dropdown-menu');
+    submenu.classList.remove('show');
+  });
+});
+
+// Obtener el contenedor de películas y el año actual
+const currentYear = new Date().getFullYear();
+
+// Contadores de clics en cada película
+const movieClickCounts = {};
+
+// Funcionalidad para el botón "Novedades"
+document.getElementById('novedades').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Filtrar películas del año actual
+  const movies = Array.from(moviesGrid.getElementsByClassName('movie-item'));
+  const currentYearMovies = movies.filter(movie => parseInt(movie.dataset.year) === currentYear);
+
+  // Mostrar solo las películas del año actual
+  moviesGrid.innerHTML = '';
+  currentYearMovies.forEach(movie => moviesGrid.appendChild(movie));
+});
+
+// Funcionalidad para el botón "Favoritos"
+document.getElementById('favoritos').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Filtrar películas con más clics (mayor a 0)
+  const movies = Array.from(moviesGrid.getElementsByClassName('movie-item'));
+  const favoriteMovies = movies.filter(movie => movieClickCounts[movie.dataset.title] > 0);
+
+  // Ordenar las películas por cantidad de clics en orden descendente
+  favoriteMovies.sort((a, b) => movieClickCounts[b.dataset.title] - movieClickCounts[a.dataset.title]);
+
+  // Mostrar solo las películas favoritas
+  moviesGrid.innerHTML = '';
+  favoriteMovies.forEach(movie => moviesGrid.appendChild(movie));
+});
+
+// Funcionalidad para contar clics en las películas
+moviesGrid.addEventListener('click', (event) => {
+  const movieCard = event.target.closest('.movie-item');
+  if (movieCard) {
+    const movieTitle = movieCard.dataset.title;
+
+    // Incrementa el contador de clics para esta película
+    movieClickCounts[movieTitle] = (movieClickCounts[movieTitle] || 0) + 1;
+  }
+});
