@@ -1,3 +1,4 @@
+
 // Funcionalidad del modo oscuro
 const toggleButton = document.getElementById('darkModeToggle');
 const body = document.body;
@@ -11,31 +12,48 @@ toggleButton.addEventListener('click', () => {
         }
 });
 
-// Funcionalidad de filtrado y orden
+// Funcionalidad de filtrado y 
 const filterButton = document.getElementById('applyFilter');
 const moviesGrid = document.getElementById('moviesGrid');
+const originalMovies = Array.from(moviesGrid.children);
 
 filterButton.addEventListener('click', () => {
-    const filterYear = document.getElementById('filterYear').value;
+    const filterYear = document.getElementById('filterYear').value.trim();
     const sortBy = document.getElementById('sortBy').value;
 
-    let movies = Array.from(moviesGrid.children);
+    const movies = Array.from(moviesGrid.getElementsByClassName('movie-item'));
 
   // Filtrar por año
-    if (filterYear) {
-    movies = movies.filter(movie => movie.dataset.year === filterYear);
-    }
+    const filteredMovies = filterYear ? 
+      movies.filter(movie => movie.dataset.year === filterYear) : 
+      movies;
 
-  // Ordenar
-    movies.sort((a, b) => {
-        if (sortBy === 'title') {
-            return a.dataset.title.localeCompare(b.dataset.title);
-        } else if (sortBy === 'year') {
-            return parseInt(a.dataset.year) - parseInt(b.dataset.year);
-        }
+  // Ordenar por título o año
+    const sortedMovies = filteredMovies.sort((a, b) => {
+      if (sortBy === 'title') {
+        return a.dataset.title.localeCompare(b.dataset.title);
+      } else if (sortBy === 'year') {
+        return parseInt(a.dataset.year) - parseInt(b.dataset.year);
+      }
     });
 
-  // Vaciar la cuadrícula y agregar las películas filtradas y ordenadas
+  // Limpiar y agregar películas filtradas y ordenadas
     moviesGrid.innerHTML = '';
-    movies.forEach(movie => moviesGrid.appendChild(movie));
-});
+    sortedMovies.forEach(movie => moviesGrid.appendChild(movie));
+  });
+
+
+// Funcionalidad del botón "Inicio"
+const inicioButton = document.getElementById('inicio');
+inicioButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+
+
+  // Limpiar la cuadrícula y mostrar todas las películas en su orden original
+    moviesGrid.innerHTML = '';
+    originalMovies.forEach(movie => moviesGrid.appendChild(movie));
+
+  // Limpiar los filtros y restablecer los valores
+    document.getElementById('filterYear').value = '';
+    document.getElementById('sortBy').value = 'title';
+  });

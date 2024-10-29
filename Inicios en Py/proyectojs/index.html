@@ -23,16 +23,26 @@
             <div class="d-flex ms-auto">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="#" id="inicio">Inicio</a>
                     </li>
                     <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Novedades</a></li>
-                            <li><a class="dropdown-item" href="#">Categorías</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#" id="categoriaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="categoriaDropdown">
+                                    <li><a class="dropdown-item" href="#">Terror</a></li>
+                                    <li><a class="dropdown-item" href="#">Comedia</a></li>
+                                    <li><a class="dropdown-item" href="#">Acción</a></li>
+                                    <li><a class="dropdown-item" href="#">Romance</a></li>
+
+                                </ul>
+                            </li>
                             <li><a class="dropdown-item" href="#">Favoritos</a></li>
-                            <li><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#addMovieModal"> Añadir</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addMovieModal"> Añadir</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -109,11 +119,11 @@
 <!--Targetas de peliculas -->
 
     <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4" id="moviesGrid">
 <!--Targetas de peliculas -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="poster1.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+            <div class="col movie-item" data-title="Deadpol VS Wolverine" data-Year="2024">
+                <div class="card">
+                    <img src="poster1.jpg" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
                         <h5 class="card-title">Deadpol VS Wolverine</h5>
                         <p class="card-text">Año: 2024</p>
@@ -121,9 +131,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="poster2.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+            <div class="col movie-item" data-title="Joker 2" data-Year="2024">
+                <div class="card">
+                    <img src="poster2.jpg" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
                         <h5 class="card-title">Joker 2</h5>
                         <p class="card-text">Año: 2024</p>
@@ -131,9 +141,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="poster3.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+            <div class="col movie-item" data-title="Alien VS Depredador 2" data-Year="2007">
+                <div class="card">
+                    <img src="poster3.jpg" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
                         <h5 class="card-title">Alien VS Depredador 2</h5>
                         <p class="card-text">Año: 2007</p>
@@ -141,9 +151,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="poster4.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+            <div class="col movie-item" data-title="Amityville Turkey Day" data-Year="2024">
+                <div class="card">
+                    <img src="poster4.jpg" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
                         <h5 class="card-title">Amityville Turkey Day</h5>
                         <p class="card-text">Año: 2024</p>
@@ -151,12 +161,62 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="poster5.jpg" height="53%" class="card-img-top" alt="Póster de la película">
+            <div class="col movie-item" data-title="No Respires 1" data-Year="2016">
+                <div class="card">
+                    <img src="poster5.jpg" class="card-img-top" alt="Póster de la película">
                     <div class="card-body">
                         <h5 class="card-title">No Respires 1</h5>
                         <p class="card-text">Año: 2016</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col movie-item" data-title="Avatar" data-Year="2009">
+                <div class="card">
+                    <img src="poster6.jpg" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Avatar</h5>
+                        <p class="card-text">Año: 2009</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col movie-item" data-title="¿Donde Estan Las Rubias?" data-Year="2004">
+                <div class="card">
+                    <img src="poster7.jpg" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">¿Donde Estan Las Rubias?</h5>
+                        <p class="card-text">Año: 2004</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col movie-item" data-title="3 Mteros Sobre El Cielo" data-Year="2010">
+                <div class="card">
+                    <img src="poster8.jpg" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">3 Mteros Sobre El Cielo</h5>
+                        <p class="card-text">Año: 2010</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col movie-item" data-title="The Purge" data-Year="2013">
+                <div class="card">
+                    <img src="poster9.jpg" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">The Purge</h5>
+                        <p class="card-text">Año: 2013</p>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="col movie-item" data-title="Camino Hacia El Terror 6" data-Year="2014">
+                <div class="card">
+                    <img src="poster10.jpg" class="card-img-top" alt="Póster de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">Camino Hacia El Terror 6</h5>
+                        <p class="card-text">Año: 2014</p>
             
                     </div>
                 </div>
