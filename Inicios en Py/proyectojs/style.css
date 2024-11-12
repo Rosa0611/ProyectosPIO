@@ -11,24 +11,24 @@ body { /* Estilo de la página */
 }
 
 .btn-outline-success { /* Estilo del boton de buscar */
-    color: white; /* Color aguamarina */
+    color: white; 
     background-color: #5df0bf;
-    border-color: #24bbbb; /* Coincide con el color del navbar */
+    border-color: #24bbbb; 
 }
 
 .btn-outline-success:hover { /* Estilo del hover del boton de buscar */
-    background-color: #24bbbb; /* Color azul */
-    border-color: #24bbbb; /* Coincide con el color del navbar */
+    background-color: #24bbbb; 
+    border-color: #24bbbb; 
 }
 .btn-custom { /* Estilo de los botones */
-    background-color: #5df0bf; /* Color aguamarina */
-    border-color: #5df0bf; /* Coincide con el color del navbar */
+    background-color: #5df0bf; 
+    border-color: #5df0bf;
     color: white;
 }
 
 .btn-custom:hover { /* Estilo del hover de los botones */
-    background-color: #24bbbb; /* Color azul */
-    border-color: #24bbbb; /* Coincide con el color del navbar */
+    background-color: #24bbbb; 
+    border-color: #24bbbb;  
 }
 
 /* estilo modo oscuro */
